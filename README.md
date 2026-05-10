@@ -4,7 +4,7 @@
 
 **Live Endpoint:** https://kissanbot-4sx33czhcknbhc7w9zzixc.streamlit.app/ 
 
-**Repo:** https://github.com/Vaishnavi-cyber-blip/KisanBot
+**Repo:** https://github.com/Vaishnavi-cyber-blip/KissanBot
 
 ---
 
