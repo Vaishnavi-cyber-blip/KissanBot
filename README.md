@@ -178,7 +178,7 @@ No Docker, GPU setup, or database configuration is required.
 1. Go to https://share.streamlit.io
 2. Connect the repository
 3. Set main file path:
-   `conveval-app/Home.py`
+   `Home.py`
 4. Click Deploy
 
 ---
