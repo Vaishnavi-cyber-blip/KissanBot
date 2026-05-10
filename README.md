@@ -34,7 +34,7 @@ These observations are based on inspection of the repository structure, benchmar
 | 4 | Evaluation of live third-party WhatsApp bots creates reproducibility challenges across time | `importer/main.py` |
 | 5 | High local hardware requirements are not clearly described in setup documentation | `gpu_setup.md`, `.env.example` |
 
-Full issue text: `issues/github_issues_v3.md`
+Full issue text: 'https://github.com/cerai-iitm/AIEvaluationTool/issues/134', 'https://github.com/cerai-iitm/AIEvaluationTool/issues/137', 'https://github.com/cerai-iitm/AIEvaluationTool/issues/139',  'https://github.com/cerai-iitm/AIEvaluationTool/issues/133'
 
 ---
 
