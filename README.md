@@ -42,59 +42,9 @@ A minimal but methodologically sound evaluation tool that directly addresses eac
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    Streamlit Application                     │
-│                                                             │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-│  │  Home    │  │ KisanBot │  │ Evaluate │  │ Results  │  │
-│  │ Overview │  │  Chat UI │  │  Runner  │  │ Detailed │  │
-│  └──────────┘  └────┬─────┘  └────┬─────┘  └──────────┘  │
-│                     │             │                         │
-│              ┌──────▼─────────────▼──────┐                 │
-│              │         core/             │                 │
-│              │                           │                 │
-│              │  kisanbot.py              │                 │
-│              │  ┌─────────────────────┐  │                 │
-│              │  │ KisanBot (Target)   │  │                 │
-│              │  │ Gemini 2.5 Flash    │  │                 │
-│              │  │ System prompt:      │  │                 │
-│              │  │ Agriculture/Health  │  │                 │
-│              │  │ /Education India    │  │                 │
-│              │  └─────────────────────┘  │                 │
-│              │                           │                 │
-│              │  evaluator.py             │                 │
-│              │  ┌─────────────────────┐  │                 │
-│              │  │ Pipeline            │  │                 │
-│              │  │ 1. Send prompt      │  │                 │
-│              │  │ 2. Get response     │  │                 │
-│              │  │ 3. Select metrics   │  │                 │
-│              │  │    by task_type     │  │                 │
-│              │  │ 4. Score each       │  │                 │
-│              │  └─────────────────────┘  │                 │
-│              │                           │                 │
-│              │  judge.py                 │                 │
-│              │  ┌─────────────────────┐  │                 │
-│              │  │ LLM Judge           │  │                 │
-│              │  │ Gemini 2.5 Flash    │  │                 │
-│              │  │ Swap-order debias   │  │                 │
-│              │  │ Confidence interval │  │                 │
-│              │  └─────────────────────┘  │                 │
-│              │                           │                 │
-│              │  testcases.py             │                 │
-│              │  ┌─────────────────────┐  │                 │
-│              │  │ 10 test cases       │  │                 │
-│              │  │ 5 task types        │  │                 │
-│              │  │ task_type→metrics   │  │                 │
-│              │  └─────────────────────┘  │                 │
-│              └───────────────────────────┘                 │
-└─────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-                    Gemini 2.5 Flash API
-                    (powers both KisanBot
-                     and the judge)
-```
+
+<img width="806" height="446" alt="image" src="https://github.com/user-attachments/assets/efe0a6f0-fb4b-4841-8435-d1634d75c150" />
+
 
 ### How the Evaluation Pipeline Works
 
