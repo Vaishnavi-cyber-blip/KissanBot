@@ -89,7 +89,8 @@ with right:
         for msg in st.session_state["chat_history"]:
             avatar = "🌾" if msg["role"] == "assistant" else "👤"
             with st.chat_message(msg["role"], avatar=avatar):
-                st.markdown(f"<div style='font-size:.85rem'>{msg['content']}</div>", unsafe_allow_html=True)
+                # st.markdown(f"<div style='font-size:.85rem'>{msg['content']}</div>", unsafe_allow_html=True)
+                st.markdown(msg['content'])
  
     prefill = st.session_state.pop("quick_prompt", "")
     user_input = st.chat_input("Ask about farming, crops, health... (Hindi/English/Tamil supported)")
