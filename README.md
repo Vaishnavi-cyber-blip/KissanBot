@@ -2,7 +2,7 @@
 
 **Gates Foundation AI Fellowship – India 2026 · Path B: Critique & Rebuild**
 
-**Live Endpoint:** _[add Streamlit URL after deployment]_  
+**Live Endpoint:** https://kissanbot-4sx33czhcknbhc7w9zzixc.streamlit.app/ 
 **Repo:** https://github.com/Vaishnavi-cyber-blip/KisanBot
 
 ---
