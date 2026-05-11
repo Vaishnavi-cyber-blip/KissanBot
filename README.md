@@ -207,7 +207,7 @@ The branch was mainly used to explore:
 - alternative evaluation designs
 - lightweight experimentation workflows
 
-[View experiments branch](https://github.com/Vaishnavi-cyber-blip/KisanBot/tree/experiments)
+[View experiments branch](https://github.com/Vaishnavi-cyber-blip/KissanBot/tree/experiments)
 
 # AI Use Disclosure
 
