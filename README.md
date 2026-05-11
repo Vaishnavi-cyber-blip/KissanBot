@@ -195,6 +195,20 @@ No Docker, GPU setup, or database configuration is required.
 
 ---
 
+## Experiments
+
+A separate branch, `experiments`, explores alternative judge configurations and evaluation workflows.
+
+It includes a comparison page that runs the same test cases through both Gemini 2.5 Flash and DeepSeek-R1 (via Groq API) side by side, allowing differences in scoring behavior and reasoning style to be inspected interactively.
+
+The branch was mainly used to explore:
+- judge variability across models
+- reasoning transparency
+- alternative evaluation designs
+- lightweight experimentation workflows
+
+[View experiments branch](https://github.com/Vaishnavi-cyber-blip/KisanBot/tree/experiments)
+
 # AI Use Disclosure
 
 AI tools including Claude and ChatGPT were used throughout development.
