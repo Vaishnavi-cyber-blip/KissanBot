@@ -94,7 +94,7 @@ with right:
             unsafe_allow_html=True)
 
 st.divider()
-st.markdown("## 5 Issues Filed — Summary")
+st.markdown("## 4 Issues Filed — Summary")
 
 ISSUES = [
     (
@@ -138,7 +138,7 @@ ISSUES = [
     # ),
 
     (
-        "#5",
+        "#4",
         "High hardware dependency undocumented",
         "Accessibility",
         "#10b981",
