@@ -38,7 +38,7 @@ with st.sidebar:
     st.caption("Gates Foundation AI Fellowship\nIndia 2026 · Path B")
 
 st.title("🌾 ConvEval — Conversational AI Evaluation")
-st.caption("Path B submission · Gates Foundation AI Fellowship India 2026 · Alternative to CeRAI AIEvaluationTool")
+st.caption("Path B submission · Gates Foundation AI Fellowship India 2026")
 
 if "api_key" not in st.session_state:
     st.info("👈 Enter your Gemini API key in the sidebar. Free key at [aistudio.google.com](https://aistudio.google.com)")
@@ -98,17 +98,18 @@ st.markdown("## 5 Issues Filed — Summary")
 
 ISSUES = [
     ("#1","BLEU/ROUGE on open-ended dialogue","Evaluation Validity","#ef4444","strategy_map.md + DataPoints.json",
-     "Applied to open-ended tasks like 'What are benefits of crop rotation?' — produces meaningless scores. ~70% of agriculture BLEU cases are open-ended.",
-     "task_type field — open tasks use semantic judge. Closed QA uses reference match. BLEU/ROUGE never used."),
+     "Open-ended advisory tasks often have multiple valid answers, limiting the usefulness of BLEU/ROUGE scores.",
+     "task_type field — open tasks use semantic judge. Closed QA uses reference match."),
     ("#2","Empty LLM_AS_JUDGE invokes judge with blank prompt","Evaluation Validity","#ef4444","importer/main.py",
-     'Empty string "" passes != "No" check — hundreds of test cases invoke judge with zero instructions. Also: same metric uses 0-1 continuous AND binary 0/1 scoring.',
+     'Empty "" values bypass judge validation checks, allowing evaluation to proceed without explicit judge configuration.
+    The framework also mixes continuous and binary scoring schemes for the same metric.',
      "Centralised judge prompts in judge.py — never empty, always consistent 0-1 scale, debiasing applied."),
     ("#3","Ground truth data quality errors","Evaluation Validity","#ef4444","DataPoints.json",
      "P89: expected output = question text. P403: Obama as 2008 president (Bush was president). P54/P55: authoring notes committed as ground truth.",
      "Schema validation before evaluation. null reference_answer cases skip reference metrics automatically."),
-    ("#4","Live WhatsApp targets non-reproducible","Reproducibility","#f59e0b","importer/main.py",
-     "5 live third-party WhatsApp bots hardcoded. FarmSawa registered as target_domain='healthcare' despite being a farming platform.",
-     "KisanBot is self-contained — always live, always reproducible. Explicit EXECUTION_STATUS on every result."),
+    # ("#4","Live WhatsApp targets non-reproducible","Reproducibility","#f59e0b","importer/main.py",
+    #  "5 live third-party WhatsApp bots hardcoded. FarmSawa registered as target_domain='healthcare' despite being a farming platform.",
+    #  "KisanBot is self-contained — always live, always reproducible. Explicit EXECUTION_STATUS on every result."),
     ("#5","24GB VRAM undocumented, API keys non-functional","Accessibility","#10b981",".env.example + gpu_setup.md",
      "qwen3:32b needs ~24GB VRAM — never stated anywhere. OPENAI_API_KEY and GEMINI_API_KEY in .env but never implemented.",
      "Gemini 1.5 Flash as judge — free tier, zero hardware. One API key powers both KisanBot and judge."),
