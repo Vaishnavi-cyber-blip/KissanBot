@@ -97,22 +97,55 @@ st.divider()
 st.markdown("## 5 Issues Filed — Summary")
 
 ISSUES = [
-    ("#1","BLEU/ROUGE on open-ended dialogue","Evaluation Validity","#ef4444","strategy_map.md + DataPoints.json",
-     "Open-ended advisory tasks often have multiple valid answers, limiting the usefulness of BLEU/ROUGE scores.",
-     "task_type field — open tasks use semantic judge. Closed QA uses reference match."),
-    ("#2","Empty LLM_AS_JUDGE invokes judge with blank prompt","Evaluation Validity","#ef4444","importer/main.py",
-     'Empty "" values bypass judge validation checks, allowing evaluation to proceed without explicit judge configuration.
-    The framework also mixes continuous and binary scoring schemes for the same metric.',
-     "Centralised judge prompts in judge.py — never empty, always consistent 0-1 scale, debiasing applied."),
-    ("#3","Ground truth data quality errors","Evaluation Validity","#ef4444","DataPoints.json",
-     "P89: expected output = question text. P403: Obama as 2008 president (Bush was president). P54/P55: authoring notes committed as ground truth.",
-     "Schema validation before evaluation. null reference_answer cases skip reference metrics automatically."),
-    # ("#4","Live WhatsApp targets non-reproducible","Reproducibility","#f59e0b","importer/main.py",
-    #  "5 live third-party WhatsApp bots hardcoded. FarmSawa registered as target_domain='healthcare' despite being a farming platform.",
-    #  "KisanBot is self-contained — always live, always reproducible. Explicit EXECUTION_STATUS on every result."),
-    ("#5","24GB VRAM undocumented, API keys non-functional","Accessibility","#10b981",".env.example + gpu_setup.md",
-     "qwen3:32b needs ~24GB VRAM — never stated anywhere. OPENAI_API_KEY and GEMINI_API_KEY in .env but never implemented.",
-     "Gemini 1.5 Flash as judge — free tier, zero hardware. One API key powers both KisanBot and judge."),
+    (
+        "#1",
+        "BLEU/ROUGE applied to open-ended dialogue",
+        "Evaluation Validity",
+        "#ef4444",
+        "strategy_map.md + DataPoints.json",
+        "Open-ended advisory tasks often have multiple valid responses, limiting the usefulness of BLEU/ROUGE-style lexical overlap metrics.",
+        "task_type routing — open-ended tasks use semantic evaluation, while closed QA uses reference matching."
+    ),
+
+    (
+        "#2",
+        "Judge configuration and scoring inconsistencies",
+        "Evaluation Validity",
+        "#ef4444",
+        "importer/main.py",
+        "Empty \"\" values bypass judge validation checks, allowing evaluation to proceed without explicit judge configuration. The framework also mixes continuous and binary scoring schemes for the same metric.",
+        "Centralised judge prompts in judge.py — prompts are never empty, scoring remains consistent on a unified 0–1 scale, and basic debiasing is applied."
+    ),
+
+    (
+        "#3",
+        "Ground truth quality issues",
+        "Evaluation Validity",
+        "#ef4444",
+        "DataPoints.json",
+        "P89: expected output duplicates the question text. P403: Obama listed as US President in 2008 (Bush was president at the time). P54/P55: authoring notes committed as ground truth references.",
+        "Schema validation is performed before evaluation. Cases with null or invalid reference answers automatically skip reference-based metrics."
+    ),
+
+    # (
+    #     "#4",
+    #     "Live third-party targets reduce reproducibility",
+    #     "Reproducibility",
+    #     "#f59e0b",
+    #     "importer/main.py",
+    #     "Five live WhatsApp bots were hardcoded as evaluation targets. FarmSawa was also registered as target_domain='healthcare' despite being a farming platform.",
+    #     "KisanBot is self-contained and reproducible. Every evaluation run returns an explicit EXECUTION_STATUS."
+    # ),
+
+    (
+        "#5",
+        "High hardware dependency undocumented",
+        "Accessibility",
+        "#10b981",
+        ".env.example + gpu_setup.md",
+        "qwen3:32b requires ~24GB VRAM in practice, but this requirement was not clearly documented. OPENAI_API_KEY and GEMINI_API_KEY were present in .env but not implemented in the pipeline.",
+        "Gemini 1.5 Flash powers both generation and evaluation through APIs, enabling lightweight execution without dedicated GPU hardware."
+    ),
 ]
 
 for num,title,label,color,evidence,problem,solution in ISSUES:
