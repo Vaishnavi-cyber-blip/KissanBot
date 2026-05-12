@@ -52,7 +52,7 @@ cards = [
     (c1,"💬","KisanBot","Chat with farming assistant","#d1fae5","#f0fdf4","#065f46"),
     (c2,"🔬","Evaluate","Run structured evaluation","#bfdbfe","#eff6ff","#1e40af"),
     (c3,"📊","Results","Detailed per-case breakdown","#e9d5ff","#faf5ff","#6b21a8"),
-    (c4,"📋","Critique","5 GitHub issues filed","#fed7aa","#fff7ed","#9a3412"),
+    (c4,"📋","Critique","4 GitHub issues filed","#fed7aa","#fff7ed","#9a3412"),
 ]
 for col,icon,title,desc,b,bg,tc in cards:
     with col:
