@@ -72,8 +72,8 @@ def get_response(user_message, api_key, history=None, system_prompt=None):
             model="gemini-2.5-flash",
             config=types.GenerateContentConfig(
                 system_instruction=system_prompt or SYSTEM_PROMPT,
-                temperature=0.5,
-                max_output_tokens=512,
+                temperature=0.3,
+                max_output_tokens=1024,
             ),
             contents=contents,
         )
