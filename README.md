@@ -6,6 +6,8 @@
 
 **Repo:** https://github.com/Vaishnavi-cyber-blip/KissanBot
 
+**Slides to understand:** https://canva.link/2dwmu9x8kvveezv
+
 ---
 
 # Overview
@@ -19,7 +21,6 @@ This submission contains three parts:
 1. **Five GitHub issues** filed on the CeRAI repository with evidence from source files and configuration
 2. **KisanBot** — a farming assistant chatbot used as the evaluation target
 3. **ConvEval** — a lightweight evaluation framework designed around task-aware metric selection
-4. **Slides to understand:** https://canva.link/2dwmu9x8kvveezv
 
 ---
 
